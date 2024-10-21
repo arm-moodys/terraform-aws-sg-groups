@@ -9,7 +9,7 @@ variable "vpc_id" {
 
 variable "inbound_ports" {
   description = "Inbound ports"
-  type        = map(object({
+  type = map(object({
     port = number
   }))
   default = {
@@ -20,7 +20,7 @@ variable "inbound_ports" {
       port = 443
     }
   }
-  
+
 }
 
 variable "ingress_cidr_ipv4" {
@@ -28,6 +28,6 @@ variable "ingress_cidr_ipv4" {
 }
 
 variable "tags" {
-  type = map(string)
+  type    = map(string)
   default = {}
 }
