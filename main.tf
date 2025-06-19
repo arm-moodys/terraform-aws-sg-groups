@@ -1,3 +1,7 @@
+/*
+  The recommended approach is to use the ingress and egress blocks inline within the aws_security_group resource. This way, Terraform manages the entire set of rules as a single unit, and will add, update, or remove rules to match your configuration—removing any extra rules not defined in your code.
+*/
+
 resource "aws_security_group" "main" {
   name        = var.name
   description = "${var.name} security group"
