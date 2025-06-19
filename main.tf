@@ -21,8 +21,8 @@ resource "aws_security_group" "main" {
     for_each = var.allow_internal_traffic ? [1] : []
     content {
       from_port   = 0
-      to_port     = 0
-      protocol    = "-1"
+      to_port     = 0    # use 65535 for "TCP Traffic" 
+      protocol    = "-1" # "tcp" for "TCP Traffic" 
       cidr_blocks = var.internal_cidr_blocks
       description = "Allow all internal traffic"
     }
