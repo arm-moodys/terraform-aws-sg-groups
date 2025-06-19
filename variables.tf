@@ -27,6 +27,17 @@ variable "ingress_cidr_ipv4" {
   type = list(string)
 }
 
+variable "allow_internal_traffic" {
+  description = "Whether to allow all internal traffic"
+  type        = bool
+  default     = false
+}
+
+variable "internal_cidr_blocks" {
+  description = "List of internal CIDR blocks to allow (if enabled)"
+  type        = list(string)
+}
+
 variable "tags" {
   type    = map(string)
   default = {}

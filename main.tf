@@ -17,6 +17,17 @@ resource "aws_security_group" "main" {
     }
   }
 
+  dynamic "ingress" {
+    for_each = var.allow_internal_traffic ? [1] : []
+    content {
+      from_port   = 0
+      to_port     = 65535
+      protocol    = "tcp"
+      cidr_blocks = var.internal_cidr_blocks
+      description = "Allow all internal TCP traffic"
+    }
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
