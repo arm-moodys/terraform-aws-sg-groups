@@ -42,3 +42,15 @@ variable "tags" {
   type    = map(string)
   default = {}
 }
+
+variable "ingress_prefix_list_rules" {
+  description = "List of ingress rules using prefix lists"
+  type = list(object({
+    description     = string
+    from_port       = number
+    to_port         = number
+    protocol        = string
+    prefix_list_ids = list(string)
+  }))
+  default = []
+}
